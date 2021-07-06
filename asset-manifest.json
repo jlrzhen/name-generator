@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/jlrzhen/name-generator/static/css/main.a617e044.chunk.css",
-    "main.js": "/jlrzhen/name-generator/static/js/main.ae8d1221.chunk.js",
-    "main.js.map": "/jlrzhen/name-generator/static/js/main.ae8d1221.chunk.js.map",
-    "runtime-main.js": "/jlrzhen/name-generator/static/js/runtime-main.80c2c233.js",
-    "runtime-main.js.map": "/jlrzhen/name-generator/static/js/runtime-main.80c2c233.js.map",
-    "static/js/2.8d63f82d.chunk.js": "/jlrzhen/name-generator/static/js/2.8d63f82d.chunk.js",
-    "static/js/2.8d63f82d.chunk.js.map": "/jlrzhen/name-generator/static/js/2.8d63f82d.chunk.js.map",
-    "static/js/3.f95d105e.chunk.js": "/jlrzhen/name-generator/static/js/3.f95d105e.chunk.js",
-    "static/js/3.f95d105e.chunk.js.map": "/jlrzhen/name-generator/static/js/3.f95d105e.chunk.js.map",
-    "index.html": "/jlrzhen/name-generator/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/jlrzhen/name-generator/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.8d63f82d.chunk.js.LICENSE.txt": "/jlrzhen/name-generator/static/js/2.8d63f82d.chunk.js.LICENSE.txt"
+    "main.css": "/name-generator/static/css/main.a617e044.chunk.css",
+    "main.js": "/name-generator/static/js/main.ae8d1221.chunk.js",
+    "main.js.map": "/name-generator/static/js/main.ae8d1221.chunk.js.map",
+    "runtime-main.js": "/name-generator/static/js/runtime-main.96db716a.js",
+    "runtime-main.js.map": "/name-generator/static/js/runtime-main.96db716a.js.map",
+    "static/js/2.8d63f82d.chunk.js": "/name-generator/static/js/2.8d63f82d.chunk.js",
+    "static/js/2.8d63f82d.chunk.js.map": "/name-generator/static/js/2.8d63f82d.chunk.js.map",
+    "static/js/3.f95d105e.chunk.js": "/name-generator/static/js/3.f95d105e.chunk.js",
+    "static/js/3.f95d105e.chunk.js.map": "/name-generator/static/js/3.f95d105e.chunk.js.map",
+    "index.html": "/name-generator/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/name-generator/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.8d63f82d.chunk.js.LICENSE.txt": "/name-generator/static/js/2.8d63f82d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.80c2c233.js",
+    "static/js/runtime-main.96db716a.js",
     "static/js/2.8d63f82d.chunk.js",
     "static/css/main.a617e044.chunk.css",
     "static/js/main.ae8d1221.chunk.js"
