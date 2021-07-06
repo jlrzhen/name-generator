@@ -5,22 +5,27 @@ function App() {
   const [name, setName] = useState(null);
 
   const handleClick = () => {
-    setName("Name");
-  }
+    const xhr = new XMLHttpRequest();
+    const url = "https://api.datamuse.com/words?";
+    const params = "rel_jja=name";
+    xhr.responseType = 'json';
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        findName(xhr.response);
+      }
+    }
+    xhr.open('GET', url + params);
+    xhr.send();
 
-  const xhr = new XMLHttpRequest();
-  const url = "https://api.datamuse.com/words?";
-  const params = "rel_jja=name";
-  xhr.responseType = 'json';
-  xhr.open('GET', url + params);
-  xhr.onload = () => {
-    console.log(xhr.response);
-  };
-  xhr.send();
+    const findName = (res) => {
+      setName(res[Math.floor(Math.random()*15)].word);
+    }
+  }
 
   return (
     <div className="App">
       <header className="App-header">
+        <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
