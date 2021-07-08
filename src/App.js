@@ -3,18 +3,19 @@ import './App.css';
 
 function App() {
   const [name, setName] = useState(null);
+  const [input, setInput] = useState(null);
 
   const handleClick = () => {
     const xhr = new XMLHttpRequest();
     const url = "https://api.datamuse.com/words?";
-    const params = "rel_jja=name";
+    const params = "rel_jja=";
     xhr.responseType = 'json';
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         findName(xhr.response);
       }
     }
-    xhr.open('GET', url + params);
+    xhr.open('GET', url + params + input);
     xhr.send();
 
     const findName = (res) => {
@@ -27,10 +28,11 @@ function App() {
       <header className="App-header">
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
+        <input onChange={event => setInput(event.target.value)} />
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
         <h2>Result: {name}</h2>
-        <button onClick={() => {setName(null);}}>New Name</button>
+        <button onClick={() => {setName(null); setInput(null);}}>New Name</button>
         </>}            
       </header>
     </div>
