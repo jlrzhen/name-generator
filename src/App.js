@@ -28,6 +28,7 @@ function App() {
       <header className="App-header">
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
+        <p>Input Theme:</p>
         <input onChange={event => setInput(event.target.value)} />
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
