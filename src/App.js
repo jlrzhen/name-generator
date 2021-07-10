@@ -8,7 +8,7 @@ function App() {
   const handleClick = () => {
     const xhr = new XMLHttpRequest();
     const url = "https://api.datamuse.com/words?";
-    const params = "rel_jja=";
+    const params = "rel_gen=";
     xhr.responseType = 'json';
     xhr.onreadystatechange = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -19,7 +19,7 @@ function App() {
     xhr.send();
 
     const findName = (res) => {
-      setName(res[Math.floor(Math.random()*15)].word);
+      setName(res[Math.floor(Math.random()*3)].word);
     }
   }
 
