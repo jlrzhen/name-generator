@@ -21,6 +21,8 @@ function App() {
     const findName = (res) => {
       setName(res[Math.floor(Math.random()*3)].word);
     }
+
+    {/*TODO: fix reset bug*/}
   }
 
   return (
