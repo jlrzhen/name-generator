@@ -22,7 +22,13 @@ function App() {
       setName(res[Math.floor(Math.random()*3)].word);
     }
 
-    {/*TODO: fix reset bug*/}
+    {/*TODO: handle empty input*/}
+  }
+
+  const handleReset = () => {
+    setName(null); 
+    setInput(null);
+    document.getElementById("themeInput").value = null;
   }
 
   return (
@@ -31,11 +37,11 @@ function App() {
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         <p>Input Theme:</p>
-        <input onChange={event => setInput(event.target.value)} />
+        <input id="themeInput" onChange={event => setInput(event.target.value)} />
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
         <h2>Result: {name}</h2>
-        <button onClick={() => {setName(null); setInput(null);}}>New Name</button>
+        <button onClick={handleReset}>New Name</button>
         </>}            
       </header>
     </div>
