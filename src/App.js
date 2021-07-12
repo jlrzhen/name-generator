@@ -24,7 +24,11 @@ function App() {
       xhr.send();
 
       const findName = (res) => {
-        setName(res[Math.floor(Math.random()*3)].word);
+        let newName = res[Math.floor(Math.random()*3)].word;
+        setName(newName);
+        if(document.getElementById("sel").value === "rand") {
+          setName(`${newName} ${Math.floor(Math.random()*9999)}`);
+        }
       }
 
     }
@@ -41,6 +45,11 @@ function App() {
       <header className="App-header">
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
+        <p>Input options:</p>
+        <select id="sel">
+          <option value="none">None</option>
+          <option value="rand">Random Number</option>
+        </select>
         <p>Input Theme:</p>
         <input id="themeInput" onChange={event => setInput(event.target.value)} />
         {!name ? <button onClick={handleClick}>Generate Name</button>
