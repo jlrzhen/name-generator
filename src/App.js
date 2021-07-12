@@ -6,23 +6,28 @@ function App() {
   const [input, setInput] = useState(null);
 
   const handleClick = () => {
-    const xhr = new XMLHttpRequest();
-    const url = "https://api.datamuse.com/words?";
-    const params = "rel_gen=";
-    xhr.responseType = 'json';
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        findName(xhr.response);
+    
+    if(!input) {
+      setName("invalid input");
+    } else {
+
+      const xhr = new XMLHttpRequest();
+      const url = "https://api.datamuse.com/words?";
+      const params = "rel_gen=";
+      xhr.responseType = 'json';
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          findName(xhr.response);
+        }
       }
-    }
-    xhr.open('GET', url + params + input);
-    xhr.send();
+      xhr.open('GET', url + params + input);
+      xhr.send();
 
-    const findName = (res) => {
-      setName(res[Math.floor(Math.random()*3)].word);
-    }
+      const findName = (res) => {
+        setName(res[Math.floor(Math.random()*3)].word);
+      }
 
-    {/*TODO: handle empty input*/}
+    }
   }
 
   const handleReset = () => {
