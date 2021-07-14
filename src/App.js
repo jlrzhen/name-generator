@@ -24,7 +24,7 @@ function App() {
       xhr.send();
 
       const findName = (res) => {
-        let newName = res[Math.floor(Math.random()*3)].word;
+        let newName = res[Math.floor(Math.random()*8)].word;
         setName(newName);
         if(document.getElementById("sel").value === "rand") {
           setName(`${newName} ${Math.floor(Math.random()*9999)}`);
