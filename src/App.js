@@ -24,11 +24,17 @@ function App() {
       xhr.send();
 
       const findName = (res) => {
-        let newName = res[Math.floor(Math.random()*8)].word;
-        setName(newName);
-        if(document.getElementById("sel").value === "rand") {
-          setName(`${newName} ${1000+Math.floor(Math.random()*9000)}`);
+        try {
+          let newName = res[Math.floor(Math.random()*8)].word;
+          setName(newName);
+          if(document.getElementById("sel").value === "rand") {
+            setName(`${newName} ${1000+Math.floor(Math.random()*9000)}`);
+          }
+        } catch(error) {
+          //console.log(error.message)
+          setName("invalid theme");
         }
+        
       }
 
     }
