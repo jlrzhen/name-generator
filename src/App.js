@@ -27,8 +27,7 @@ function App() {
         let newName = res[Math.floor(Math.random()*8)].word;
         setName(newName);
         if(document.getElementById("sel").value === "rand") {
-          setName(`${newName} ${Math.floor(Math.random()*9999)}`);
-          // TODO: Change random number to always be 4 digits long
+          setName(`${newName} ${1000+Math.floor(Math.random()*9000)}`);
         }
       }
 
