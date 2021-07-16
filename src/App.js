@@ -24,7 +24,7 @@ function App() {
       xhr.open('GET', url + params + input);
       xhr.send();
 
-      /* Randomly select and display name from DataMuse response */ 
+      /* Displays list of names from DataMuse response */ 
       const findName = (res) => {
         try {
           /* Convert response to array of names */
