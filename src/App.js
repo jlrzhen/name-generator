@@ -24,6 +24,8 @@ function App() {
       xhr.open('GET', url + params + input);
       xhr.send();
 
+      // TODO: select names randomly to prevent repeated outputs
+
       /* Displays list of names from DataMuse response */ 
       const findName = (res) => {
         try {
