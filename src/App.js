@@ -27,11 +27,30 @@ function App() {
       /* Randomly select and display name from DataMuse response */ 
       const findName = (res) => {
         try {
-          let newName = res[Math.floor(Math.random()*8)].word;
-          setName(newName);
-          if(document.getElementById("sel").value === "rand") {
-            setName(`${newName} ${1000+Math.floor(Math.random()*9000)}`);
+          /* Convert response to array of names */
+          let newNames = [];
+          for (let i = 0; i < res.length; i++) {
+            if (i < 10) {
+              newNames.push(res[i].word);
+            }
           }
+          
+          //let newName = res[Math.floor(Math.random()*8)].word;        
+          /* Convert array of names to string */
+          let newNamesString = "";
+          for (let i = 0; i < newNames.length; i++) {
+            newNamesString += newNames[i];
+            
+            if(document.getElementById("sel").value === "rand") {
+              newNamesString += " " + (1000+Math.floor(Math.random()*9000));
+            }
+            
+            if(i < newNames.length - 1) {
+              newNamesString += ", ";
+            }
+          }
+          setName(newNamesString);
+               
         } catch(error) {
           //console.log(error.message)
           setName("invalid theme");
@@ -61,7 +80,7 @@ function App() {
         </select>
 
         <p>Input Theme:</p>
-        <input id="themeInput" onChange={event => setInput(event.target.value)} />
+        <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
         
         {/* Show name and reset button after generating name */}
         {!name ? <button onClick={handleClick}>Generate Name</button>
