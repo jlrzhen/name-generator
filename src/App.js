@@ -11,7 +11,7 @@ function App() {
       setName("invalid input");
     } else {
 
-      // GET Request for DataMuse api
+      /* GET Request for DataMuse  */
       const xhr = new XMLHttpRequest();
       const url = "https://api.datamuse.com/words?";
       const params = "rel_gen=";
@@ -24,6 +24,7 @@ function App() {
       xhr.open('GET', url + params + input);
       xhr.send();
 
+      /* Randomly select and display name from DataMuse response */ 
       const findName = (res) => {
         try {
           let newName = res[Math.floor(Math.random()*8)].word;
@@ -54,12 +55,16 @@ function App() {
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         <p>Input options:</p>
+       
         <select id="sel">
           <option value="none">None</option>
           <option value="rand">Random Number</option>
         </select>
+        
         <p>Input Theme:</p>
         <input id="themeInput" onChange={event => setInput(event.target.value)} />
+        
+        {/* Show name and reset button after generating name */}
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
         <h2>Result: {name}</h2>
