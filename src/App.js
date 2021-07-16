@@ -37,7 +37,6 @@ function App() {
           setName("invalid theme");
         }
         // TODO: display list of possible names
-        // TODO: add comments
       }
 
     }
@@ -60,7 +59,7 @@ function App() {
           <option value="none">None</option>
           <option value="rand">Random Number</option>
         </select>
-        
+
         <p>Input Theme:</p>
         <input id="themeInput" onChange={event => setInput(event.target.value)} />
         
