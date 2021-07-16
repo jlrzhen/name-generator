@@ -11,6 +11,7 @@ function App() {
       setName("invalid input");
     } else {
 
+      // GET Request for DataMuse api
       const xhr = new XMLHttpRequest();
       const url = "https://api.datamuse.com/words?";
       const params = "rel_gen=";
