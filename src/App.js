@@ -55,7 +55,6 @@ function App() {
           //console.log(error.message)
           setName("invalid theme");
         }
-        // TODO: display list of possible names
       }
 
     }
