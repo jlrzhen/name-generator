@@ -34,8 +34,7 @@ function App() {
               newNames.push(res[i].word);
             }
           }
-          
-          //let newName = res[Math.floor(Math.random()*8)].word;        
+                 
           /* Convert array of names to string */
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
