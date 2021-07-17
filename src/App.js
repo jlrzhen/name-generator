@@ -55,6 +55,7 @@ function App() {
           for (let i = 0; i < newNames.length; i++) {
             newNamesString += newNames[i];
             
+            // Append random four digit number to name
             if(document.getElementById("sel").value === "rand") {
               newNamesString += " " + (1000+Math.floor(Math.random()*9000));
             }
