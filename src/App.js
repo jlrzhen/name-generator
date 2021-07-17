@@ -24,19 +24,32 @@ function App() {
       xhr.open('GET', url + params + input);
       xhr.send();
 
-      // TODO: select names randomly to prevent repeated outputs
-
       /* Displays list of names from DataMuse response */ 
       const findName = (res) => {
         try {
           /* Convert response to array of names */
           let newNames = [];
-          for (let i = 0; i < res.length; i++) {
-            if (i < 10) {
-              newNames.push(res[i].word);
+          let selectedIndexes = [];
+          
+          /* Maximum index of DataMuse response ranked by
+          score, higher values are generally less accurate 
+          but provide more options */
+          let maxIndex = 30;
+
+          while(
+          selectedIndexes.length < 10 && 
+          selectedIndexes.length < res.length) {          
+            
+            let randNum = Math.floor(Math.random()*res.length); 
+            
+            if(!selectedIndexes.includes(randNum) && randNum < maxIndex) {           
+              selectedIndexes.push(randNum);
+              newNames.push(res[randNum].word);
             }
           }
-                 
+
+          // TODO: Add refresh button to find new names with same theme
+
           /* Convert array of names to string */
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
@@ -51,9 +64,9 @@ function App() {
             }
           }
           setName(newNamesString);
-               
+
         } catch(error) {
-          //console.log(error.message)
+          console.log(error.message)
           setName("invalid theme");
         }
       }
