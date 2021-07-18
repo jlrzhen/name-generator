@@ -7,6 +7,8 @@ function App() {
 
   const handleClick = () => {
     
+    setName(null); 
+    
     if(!input) {
       setName("invalid input");
     } else {
@@ -48,7 +50,7 @@ function App() {
             }
           }
 
-          // TODO: Add refresh button to find new names with same theme
+          // TODO: Work on CSS
 
           /* Convert array of names to string */
           let newNamesString = "";
@@ -100,6 +102,7 @@ function App() {
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
         <h2>Result: {name}</h2>
+        <button onClick={handleClick}>Refresh</button>
         <button onClick={handleReset}>New Name</button>
         </>}            
       </header>
