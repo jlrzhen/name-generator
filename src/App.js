@@ -51,7 +51,7 @@ function App() {
           }
 
           // TODO: Work on CSS
-          // TODO: Remove spaces between words in names
+          // TODO: Remove spaces between words in names (add as option)
 
           /* Convert array of names to string */
           let newNamesString = "";
