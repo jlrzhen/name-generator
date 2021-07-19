@@ -86,6 +86,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <a style={{color: "white"}} href="https://www.datamuse.com/api/">Datamuse API</a>
+        <br/>
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         <p>Input options:</p>
