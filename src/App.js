@@ -39,6 +39,8 @@ function App() {
           but provide more options */
           let maxIndex = 30;
 
+          /* Generate array of random numbers within index range of 
+          API query repsonse */ 
           while(
           selectedIndexes.length < 10 && 
           selectedIndexes.length < res.length) {          
