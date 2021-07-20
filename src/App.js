@@ -29,6 +29,7 @@ function App() {
       /* Displays list of names from DataMuse response */ 
       const findName = (res) => {
         try {
+          
           /* Convert response to array of names */
           let newNames = [];
           let selectedIndexes = [];
@@ -69,9 +70,12 @@ function App() {
           }
           setName(newNamesString);
 
+          /* Response for invalid theme response from API */
+          if(newNames < 1) {
+            setName("invalid theme");
+          }
         } catch(error) {
           console.log(error.message)
-          setName("invalid theme");
         }
       }
 
