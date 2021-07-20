@@ -51,13 +51,22 @@ function App() {
             }
           }
 
-          // TODO: Work on CSS
-          // TODO: Remove spaces between words in names (add as option)
+          /* 
+          TODO: 
+          - Work on CSS
+          - Change option selection to checkbox
+          - Capitalize first letter of each word (add as option)
+          */
 
           /* Convert array of names to string */
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
-            newNamesString += newNames[i];
+            // Remove spaces between words in name
+            if(document.getElementById("selSpace").value === "noSpace") {
+              newNamesString += newNames[i].split(" ").join("");
+            } else {
+              newNamesString += newNames[i];
+            }
             
             // Append random four digit number to name
             if(document.getElementById("sel").value === "rand") {
@@ -100,6 +109,10 @@ function App() {
         <select id="sel">
           <option value="none">None</option>
           <option value="rand">Random Number</option>
+        </select>
+        <select id="selSpace">
+        <option value="noSpace">No Spaces</option>
+          <option value="space">Include Spaces</option>
         </select>
 
         <p>Input Theme:</p>
