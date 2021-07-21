@@ -58,6 +58,7 @@ function App() {
           - Work on CSS
           - Change option selection to checkbox
           - Capitalize first letter of each word (add as option)
+          - Change metadata
           */
 
           /* Convert array of names to string */
