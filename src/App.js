@@ -56,7 +56,6 @@ function App() {
           /* 
           TODO: 
           - Work on CSS
-          - Change option selection to checkbox
           - Capitalize first letter of each word (add as option)
           - Change metadata
           */
@@ -65,14 +64,14 @@ function App() {
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
             // Remove spaces between words in name
-            if(document.getElementById("selSpace").value === "noSpace") {
+            if(document.getElementById("noSpace").checked) {
               newNamesString += newNames[i].split(" ").join("");
             } else {
               newNamesString += newNames[i];
             }
             
             // Append random four digit number to name
-            if(document.getElementById("sel").value === "rand") {
+            if(document.getElementById("rand").checked) {
               newNamesString += " " + (1000+Math.floor(Math.random()*9000));
             }
             
@@ -107,16 +106,16 @@ function App() {
         <br/>
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
-        <p>Input options:</p>
-       
-        <select id="sel">
-          <option value="none">None</option>
-          <option value="rand">Random Number</option>
-        </select>
-        <select id="selSpace">
-        <option value="noSpace">No Spaces</option>
-          <option value="space">Include Spaces</option>
-        </select>
+        
+        <section id="selection">
+          <label style={{fontWeight: "bold"}}>Input options:</label>
+          <br/>
+          <label for="rand">Random Number </label>
+          <input type="checkbox" id="rand" value="rand"/>
+          <br/>
+          <label for="noSpace">No Spaces </label>
+          <input type="checkbox" id="noSpace" value="noSpace"/>
+        </section>
 
         <p>Input Theme:</p>
         <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
@@ -124,7 +123,7 @@ function App() {
         {/* Show name and reset button after generating name */}
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
-        <h2>Result: {name}</h2>
+        <h3>Result: {name}</h3>
         <button onClick={handleClick}>Refresh</button>
         <button onClick={handleReset}>New Name</button>
         </>}            
