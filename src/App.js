@@ -57,7 +57,7 @@ function App() {
           TODO: 
           - Work on CSS
           - Capitalize first letter of each word (add as option)
-          - Change metadata
+          - Clean files
           */
 
           /* Convert array of names to string */
