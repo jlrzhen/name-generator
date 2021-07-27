@@ -57,7 +57,7 @@ function App() {
             - Work on CSS
             - Add option for camelCase, dropdown with capitilization
             - Add option to remove space between name and number
-            (dropdown with "no spaces")
+              (dropdown with "no spaces")
             - Clean files
             - Add animations
           */
