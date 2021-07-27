@@ -55,15 +55,27 @@ function App() {
 
           /* 
           TODO: 
-          - Work on CSS
-          - Capitalize first letter of each word (add as option)
-          - Clean files
-          - Add animations
+            - Work on CSS
+            - Add option for camelCase, dropdown with capitilization
+            - Add option to remove space between name and number
+            (dropdown with "no spaces")
+            - Clean files
+            - Add animations
           */
 
           /* Convert array of names to string */
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
+            // Capitalize first letter of each word
+            if(document.getElementById("caps").checked) {
+              let capsArr = newNames[i].split(" ");
+              capsArr.forEach(
+                (name, index) => capsArr[index] = name[0].toUpperCase() + name.slice(1)
+              );
+              newNames[i] = capsArr.join(" ");
+              console.log(capsArr);
+            }
+
             // Remove spaces between words in name
             if(document.getElementById("noSpace").checked) {
               newNamesString += newNames[i].split(" ").join("");
@@ -116,6 +128,9 @@ function App() {
           <br/>
           <label for="noSpace">No Spaces </label>
           <input type="checkbox" id="noSpace" value="noSpace"/>
+          <br/>
+          <label for="caps">Capitalize First Letters </label>
+          <input type="checkbox" id="caps" value="caps"/>
         </section>
 
         <p>Input Theme:</p>
