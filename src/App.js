@@ -53,8 +53,7 @@ function App() {
             }
           }
 
-          /* 
-          TODO: 
+          /* TODO: 
             - Work on CSS
             - Add option for camelCase, dropdown with capitilization
             - Add option to remove space between name and number
