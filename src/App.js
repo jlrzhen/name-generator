@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [name, setName] = useState(null);
   const [input, setInput] = useState(null);
+  const [randEnabled, setRandEnabled] = useState(false);
 
   const handleClick = () => {
     
@@ -56,7 +57,6 @@ function App() {
           /* TODO: 
             - Work on CSS
             - Add option for camelCase, dropdown with capitilization
-            - Add option to remove space between name and number
               (dropdown with "no spaces")
             - Clean files
             - Add animations
@@ -84,7 +84,12 @@ function App() {
             
             // Append random four digit number to name
             if(document.getElementById("rand").checked) {
-              newNamesString += " " + (1000+Math.floor(Math.random()*9000));
+              // Remove space between name and numbers
+              if(document.getElementById("noSpaceNum").checked) {
+                newNamesString += "" + (1000+Math.floor(Math.random()*9000));
+              } else {
+                newNamesString += " " + (1000+Math.floor(Math.random()*9000));
+              }
             }
             
             if(i < newNames.length - 1) {
@@ -123,9 +128,18 @@ function App() {
           <label style={{fontWeight: "bold"}}>Input options:</label>
           <br/>
           <label for="rand">Random Number </label>
-          <input type="checkbox" id="rand" value="rand"/>
+          <input type="checkbox" id="rand" value="rand"
+            onChange = {() => setRandEnabled(document.getElementById("rand").checked)}
+          />
           <br/>
-          <label for="noSpace">No Spaces </label>
+          {randEnabled ?
+            <>
+              <label for="noSpaceNum">No Space Before Number </label>
+              <input type="checkbox" id="noSpaceNum" value="noSpaceNum"/>
+              <br/> 
+            </> : <></>
+          }
+          <label for="noSpace">No Spaces Between Words </label>
           <input type="checkbox" id="noSpace" value="noSpace"/>
           <br/>
           <label for="caps">Capitalize First Letters </label>
