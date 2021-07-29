@@ -55,21 +55,32 @@ function App() {
           }
 
           /* TODO: 
-            - Work on CSS
-            - Add option for camelCase, dropdown with capitilization
-              (dropdown with "no spaces")
+            - Work on CSS, add animations
+            - Add links to copy to clipboard
+              after clicking name
             - Clean files
-            - Add animations
           */
 
           /* Convert array of names to string */
           let newNamesString = "";
           for (let i = 0; i < newNames.length; i++) {
             // Capitalize first letter of each word
-            if(document.getElementById("caps").checked) {
+            if(document.getElementById("caps").value==="allCaps") {
               let capsArr = newNames[i].split(" ");
               capsArr.forEach(
                 (name, index) => capsArr[index] = name[0].toUpperCase() + name.slice(1)
+              );
+              newNames[i] = capsArr.join(" ");
+              console.log(capsArr);
+            }
+
+            // Capitalize with camelCase 
+            if(document.getElementById("caps").value==="camelCase") {
+              let capsArr = newNames[i].split(" ");
+              capsArr.forEach(
+                (name, index) => {
+                  if(index>0) {capsArr[index] = name[0].toUpperCase() + name.slice(1)}
+                }
               );
               newNames[i] = capsArr.join(" ");
               console.log(capsArr);
@@ -142,11 +153,15 @@ function App() {
           <label for="noSpace">No Spaces Between Words </label>
           <input type="checkbox" id="noSpace" value="noSpace"/>
           <br/>
-          <label for="caps">Capitalize First Letters </label>
-          <input type="checkbox" id="caps" value="caps"/>
+          <label for="caps">Capitalization </label>
+          <select id="caps">
+            <option value="allCaps">Capitalize First Letters</option>
+            <option value="camelCase">camelCase</option>
+            <option value="none">none</option>
+          </select>
         </section>
 
-        <p>Input Theme:</p>
+        <p style={{fontWeight: "bold"}}>Input Theme:</p>
         <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
         
         {/* Show name and reset button after generating name */}
