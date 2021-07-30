@@ -59,6 +59,7 @@ function App() {
             - Add links to copy to clipboard
               after clicking name
             - Clean files
+            -separate code into smaller files
           */
 
           /* Convert array of names to string */
