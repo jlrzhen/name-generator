@@ -56,6 +56,7 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
+              -Add dark and light theme
             - Add links to copy to clipboard
               after clicking name
             - Clean files
