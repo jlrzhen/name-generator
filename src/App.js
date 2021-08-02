@@ -5,7 +5,7 @@ function App() {
   const [name, setName] = useState(null);
   const [input, setInput] = useState(null);
   const [randEnabled, setRandEnabled] = useState(false);
-  const [lightMode, setLightMode] = useState(false);
+  const [lightMode, setLightMode] = useState(true);
 
   const handleClick = () => {
     
@@ -57,7 +57,7 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
-              -Add dark and light theme
+              -Add label to theme button
             - Add links to copy to clipboard
               after clicking name
             - Clean files
@@ -136,16 +136,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <a style={{color: "white"}} href="https://www.datamuse.com/api/">Datamuse API</a>
+      <header className={lightMode?"App-headerDark":"App-headerLight"}>
+        <a style={lightMode?{color: "white"}:{color: "black"}} href="https://www.datamuse.com/api/">Datamuse API</a>
         <br/>
-        <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
+        <a style={lightMode?{color: "white"}:{color: "black"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         
         <button
           onClick = {handleThemeChange}
-        >{lightMode?"Dark Mode":"Light Mode"}</button>
-        <p>{lightMode.toString()}</p>
+        >{lightMode?"Light Mode":"Dark Mode"}</button>
+        {/* <p>Dark mode: {lightMode.toString()}</p> */}
+        <br/>
 
         <section id="selection">
           <label style={{fontWeight: "bold"}}>Input options:</label>
@@ -173,8 +174,10 @@ function App() {
           </select>
         </section>
 
-        <p style={{fontWeight: "bold"}}>Input Theme:</p>
-        <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
+        <div><br/>
+          <label style={{fontWeight: "bold"}}>Input Theme: </label>
+          <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
+        </div><br/>
         
         {/* Show name and reset button after generating name */}
         {!name ? <button onClick={handleClick}>Generate Name</button>
