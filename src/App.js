@@ -5,6 +5,7 @@ function App() {
   const [name, setName] = useState(null);
   const [input, setInput] = useState(null);
   const [randEnabled, setRandEnabled] = useState(false);
+  const [lightMode, setLightMode] = useState(false);
 
   const handleClick = () => {
     
@@ -129,6 +130,10 @@ function App() {
     document.getElementById("themeInput").value = null;
   }
 
+  const handleThemeChange = () => {
+    lightMode ? setLightMode(false) : setLightMode(true);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -137,6 +142,11 @@ function App() {
         <a style={{color: "white"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         
+        <button
+          onClick = {handleThemeChange}
+        >{lightMode?"Dark Mode":"Light Mode"}</button>
+        <p>{lightMode.toString()}</p>
+
         <section id="selection">
           <label style={{fontWeight: "bold"}}>Input options:</label>
           <br/>
