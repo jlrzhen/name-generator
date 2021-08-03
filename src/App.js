@@ -142,12 +142,15 @@ function App() {
         <a style={lightMode?{color: "white"}:{color: "black"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         
-        <button
-          onClick = {handleThemeChange}
-        >{lightMode?"Light Mode":"Dark Mode"}</button>
-        {/* <p>Dark mode: {lightMode.toString()}</p> */}
+        <div>
+          <label>Change Theme </label>
+          <button
+            onClick = {handleThemeChange}
+          >{lightMode?"Light Mode":"Dark Mode"}</button>
+          {/* <p>Dark mode: {lightMode.toString()}</p> */}
+        </div>
         <br/>
-
+        
         <section id="selection">
           <label style={{fontWeight: "bold"}}>Input options:</label>
           <br/>
@@ -175,7 +178,7 @@ function App() {
         </section>
 
         <div><br/>
-          <label style={{fontWeight: "bold"}}>Input Theme: </label>
+          <label style={{fontWeight: "bold"}}>Input Keyword: </label>
           <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
         </div><br/>
         
