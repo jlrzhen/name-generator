@@ -57,7 +57,6 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
-              -Add label to theme button
             - Add links to copy to clipboard
               after clicking name
             - Clean files
@@ -137,9 +136,9 @@ function App() {
   return (
     <div className="App">
       <header className={lightMode?"App-headerDark":"App-headerLight"}>
-        <a style={lightMode?{color: "white"}:{color: "black"}} href="https://www.datamuse.com/api/">Datamuse API</a>
+        <a className={lightMode?"white":"black"} href="https://www.datamuse.com/api/">Datamuse API</a>
         <br/>
-        <a style={lightMode?{color: "white"}:{color: "black"}} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
+        <a className={lightMode?"white":"black"} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         
         <div>

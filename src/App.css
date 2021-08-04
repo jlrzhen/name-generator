@@ -24,3 +24,14 @@
   color: rgb(0, 0, 0);
 }
 
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+a:hover {
+  color: turquoise;
+}
