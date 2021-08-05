@@ -57,6 +57,7 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
+              - disable animation on page load
             - Add links to copy to clipboard
               after clicking name
             - Clean files

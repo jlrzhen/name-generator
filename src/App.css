@@ -2,36 +2,76 @@
   text-align: center;
 }
 
-.App-headerDark {
-  background-color: #282c34;
+.App-headerDark { 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  animation-name: lightToDark;
+  animation-duration: 1s; 
+  background-color: #282c34; 
   color: white;
 }
 
 .App-headerLight {
-  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  animation-name: darkToLight;
+  animation-duration: 1s; 
+  background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
 
 .white {
+  animation-name: blackToWhite;
+  animation-duration: 1s;
   color: white;
 }
 
 .black {
+  animation-name: whiteToBlack;
+  animation-duration: 1s;
   color: black;
 }
 
 a:hover {
   color: turquoise;
+}
+
+@keyframes lightToDark {
+  from {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+  to {
+    background-color: #282c34; 
+    color: white;
+  }
+}
+
+@keyframes darkToLight {
+  from {
+    background-color: #282c34;
+    color: white;
+  }
+  to {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+}
+
+@keyframes whiteToBlack {
+  from {color: white;}
+  to {color: black;}
+}
+
+@keyframes blackToWhite {
+  from {color: black;}
+  to {color: white;}
 }
