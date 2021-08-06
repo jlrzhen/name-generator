@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.App-headerStart { 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background-color: #282c34; 
+  color: white;
+}
+
 .App-headerDark { 
   min-height: 100vh;
   display: flex;
@@ -28,13 +39,17 @@
   color: rgb(0, 0, 0);
 }
 
-.white {
+.linkStart {
+  color: white;
+}
+
+.linkDark {
   animation-name: blackToWhite;
   animation-duration: 1s;
   color: white;
 }
 
-.black {
+.linkLight {
   animation-name: whiteToBlack;
   animation-duration: 1s;
   color: black;

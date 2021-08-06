@@ -5,7 +5,7 @@ function App() {
   const [name, setName] = useState(null);
   const [input, setInput] = useState(null);
   const [randEnabled, setRandEnabled] = useState(false);
-  const [lightMode, setLightMode] = useState(true);
+  const [theme, setTheme] = useState("Start");
 
   const handleClick = () => {
     
@@ -57,11 +57,12 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
-              - disable animation on page load
+              - Change background colour
+            - Add error message for blank keyword
+            -separate code into smaller files
             - Add links to copy to clipboard
               after clicking name
             - Clean files
-            -separate code into smaller files
           */
 
           /* Convert array of names to string */
@@ -131,23 +132,27 @@ function App() {
   }
 
   const handleThemeChange = () => {
-    lightMode ? setLightMode(false) : setLightMode(true);
+    theme==="Start" || theme==="Dark" ? setTheme("Light") : setTheme("Dark");
   }
 
   return (
     <div className="App">
-      <header className={lightMode?"App-headerDark":"App-headerLight"}>
-        <a className={lightMode?"white":"black"} href="https://www.datamuse.com/api/">Datamuse API</a>
+      <header className={`App-header${theme}`}>
+        <a className={`link${theme}`} href="https://www.datamuse.com/api/">Datamuse API</a>
         <br/>
-        <a className={lightMode?"white":"black"} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
+        <a className={`link${theme}`} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
         <h1>Name Generator</h1>
         
         <div>
           <label>Change Theme </label>
           <button
             onClick = {handleThemeChange}
-          >{lightMode?"Light Mode":"Dark Mode"}</button>
-          {/* <p>Dark mode: {lightMode.toString()}</p> */}
+          >{
+            theme==="Start"?"Light Mode"
+            :theme==="Light"?"Dark Mode"
+            :"Light Mode"
+          }</button>
+          {/* <p>{`Theme: ${theme}`}}</p> */}
         </div>
         <br/>
         
