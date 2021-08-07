@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import logoGH from './images/GitHub-Mark-32px.png'
+import logoGHWhite from './images/GitHub-Mark-32px-White.png'
 
 function App() {
   const [name, setName] = useState(null);
@@ -140,7 +142,19 @@ function App() {
       <header className={`App-header${theme}`}>
         <a className={`link${theme}`} href="https://www.datamuse.com/api/">Datamuse API</a>
         <br/>
-        <a className={`link${theme}`} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
+        <div>
+          {theme==="Start" || theme==="Dark" ? 
+            <a href="https://github.com/jlrzhen/name-generator">
+              <img src={logoGHWhite} alt="GitHub Mark"/> 
+            </a>
+            : 
+            <a href="https://github.com/jlrzhen/name-generator">
+              <img src={logoGH} alt="GitHub Mark"/>
+            </a>
+          }
+          <span> </span>
+          <a className={`link${theme}`} href="https://github.com/jlrzhen/name-generator">GitHub repository</a>
+        </div>
         <h1>Name Generator</h1>
         
         <div>
