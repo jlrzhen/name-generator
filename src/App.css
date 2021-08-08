@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  background-color: #282c34; 
+  background-color: #1b263a; 
   color: white;
 }
 
@@ -22,7 +22,7 @@
   font-size: calc(10px + 2vmin);
   animation-name: lightToDark;
   animation-duration: 1s; 
-  background-color: #282c34; 
+  background-color: #1b263a; 
   color: white;
 }
 
@@ -65,14 +65,14 @@ a:hover {
     color: rgb(0, 0, 0);
   }
   to {
-    background-color: #282c34; 
+    background-color: #1b263a; 
     color: white;
   }
 }
 
 @keyframes darkToLight {
   from {
-    background-color: #282c34;
+    background-color: #1b263a;
     color: white;
   }
   to {

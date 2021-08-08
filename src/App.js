@@ -59,8 +59,6 @@ function App() {
 
           /* TODO: 
             - Work on CSS, add animations
-              - Change background colour
-            - Add error message for blank keyword
             -separate code into smaller files
             - Add links to copy to clipboard
               after clicking name
