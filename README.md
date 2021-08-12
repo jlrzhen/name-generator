@@ -3,6 +3,8 @@
 
 A web app that generates usernames based on a theme selected by the user.
 
+![Screenshot of app](./src/images/nameGeneratorScreenshot.jpg)
+
 This app is dependent on the [Datamuse API](https://www.datamuse.com/api/) and finds usernames by running queries with specific parameters.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
