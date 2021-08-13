@@ -60,7 +60,6 @@ function App() {
           /* TODO: 
             - Work on CSS, add animations
             - separate code into smaller files
-            - add screenshoot to readme
             - create api to return names 
             - Add links to copy to clipboard
               after clicking name
