@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import logoGH from './images/GitHub-Mark-32px.png'
 import logoGHWhite from './images/GitHub-Mark-32px-White.png'
+import findName from './functions/findName'
 
 function App() {
   const [name, setName] = useState(null);
@@ -24,105 +25,11 @@ function App() {
       xhr.responseType = 'json';
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-          findName(xhr.response);
+          setName(findName(xhr.response));
         }
       }
       xhr.open('GET', url + params + input);
       xhr.send();
-
-      /* Displays list of names from DataMuse response */ 
-      const findName = (res) => {
-        try {
-          
-          /* Convert response to array of names */
-          let newNames = [];
-          let selectedIndexes = [];
-          
-          /* Maximum index of DataMuse response ranked by
-          score, higher values are generally less accurate 
-          but provide more options */
-          let maxIndex = 30;
-
-          /* Generate array of random numbers within index range of 
-          API query repsonse */ 
-          while(
-          selectedIndexes.length < 10 && 
-          selectedIndexes.length < res.length) {          
-            
-            let randNum = Math.floor(Math.random()*res.length); 
-            
-            if(!selectedIndexes.includes(randNum) && randNum < maxIndex) {           
-              selectedIndexes.push(randNum);
-              newNames.push(res[randNum].word);
-            }
-          }
-
-          /* TODO: 
-            - Work on CSS, add animations
-            - separate code into smaller files
-            - create api to return names 
-            - Add links to copy to clipboard
-              after clicking name
-            - Clean files
-          */
-
-          /* Convert array of names to string */
-          let newNamesString = "";
-          for (let i = 0; i < newNames.length; i++) {
-            // Capitalize first letter of each word
-            if(document.getElementById("caps").value==="allCaps") {
-              let capsArr = newNames[i].split(" ");
-              capsArr.forEach(
-                (name, index) => capsArr[index] = name[0].toUpperCase() + name.slice(1)
-              );
-              newNames[i] = capsArr.join(" ");
-              console.log(capsArr);
-            }
-
-            // Capitalize with camelCase 
-            if(document.getElementById("caps").value==="camelCase") {
-              let capsArr = newNames[i].split(" ");
-              capsArr.forEach(
-                (name, index) => {
-                  if(index>0) {capsArr[index] = name[0].toUpperCase() + name.slice(1)}
-                }
-              );
-              newNames[i] = capsArr.join(" ");
-              console.log(capsArr);
-            }
-
-            // Remove spaces between words in name
-            if(document.getElementById("noSpace").checked) {
-              newNamesString += newNames[i].split(" ").join("");
-            } else {
-              newNamesString += newNames[i];
-            }
-            
-            // Append random four digit number to name
-            if(document.getElementById("rand").checked) {
-              // Remove space between name and numbers
-              if(document.getElementById("noSpaceNum").checked) {
-                newNamesString += "" + (1000+Math.floor(Math.random()*9000));
-              } else {
-                newNamesString += " " + (1000+Math.floor(Math.random()*9000));
-              }
-            }
-            
-            if(i < newNames.length - 1) {
-              newNamesString += ", ";
-            }
-          }
-          setName(newNamesString);
-
-          /* Response for invalid theme response from API */
-          if(newNames < 1) {
-            setName("invalid theme");
-          }
-        } catch(error) {
-          console.log(error.message)
-        }
-      }
-
     }
   }
 
