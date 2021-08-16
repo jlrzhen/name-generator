@@ -25,15 +25,6 @@ export default function findName(res) {
         }
       }
 
-      /* TODO: 
-        - Work on CSS, add animations
-        - separate code into smaller files
-        - create api to return names 
-        - Add links to copy to clipboard
-          after clicking name
-        - Clean files
-      */
-
       /* Convert array of names to string */
       let newNamesString = "";
       for (let i = 0; i < newNames.length; i++) {
