@@ -11,6 +11,7 @@ import findName from './functions/findName'
   - Add links to copy to clipboard
     after clicking name
   - Clean files
+  - Add sources for icon
 */
 
 function App() {
