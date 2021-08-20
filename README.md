@@ -19,3 +19,6 @@ two or more words
   3. No capitalization
 - **Change theme**:
   - Switches from dark (default) to light theme
+
+## Resources Used
+- **Icon**: [Twemoji](https://twemoji.twitter.com/)
