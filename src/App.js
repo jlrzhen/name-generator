@@ -9,7 +9,6 @@ import findName from './functions/findName'
   - separate code into smaller files
   - Add links to copy to clipboard
     after clicking name
-  - Clean files
 */
 
 function App() {
