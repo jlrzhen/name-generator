@@ -55,6 +55,7 @@ export default function findName(res) {
       // Remove spaces between words in name
       if(document.getElementById("noSpace").checked) {
         newNamesString += newNames[i].split(" ").join("");
+        newNames[i] = newNames[i].split(" ").join("");
       } else {
         newNamesString += newNames[i];
       }
@@ -64,8 +65,10 @@ export default function findName(res) {
         // Remove space between name and numbers
         if(document.getElementById("noSpaceNum").checked) {
             newNamesString += "" + (1000+Math.floor(Math.random()*9000));
+            newNames[i] += "" + (1000+Math.floor(Math.random()*9000));
         } else {
             newNamesString += " " + (1000+Math.floor(Math.random()*9000));
+            newNames[i] += " " + (1000+Math.floor(Math.random()*9000));
         }
       }
       
@@ -77,7 +80,8 @@ export default function findName(res) {
     if(newNames < 1) {
       return("invalid theme");
     } else {
-      return(newNamesString);
+      console.log(newNamesString);
+      return(newNames);
     }
   } catch(error) {
     console.log(error.message)

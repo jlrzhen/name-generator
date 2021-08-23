@@ -7,8 +7,6 @@ import findName from './functions/findName'
 /* TODO: 
   - Work on CSS, add animations
   - separate code into smaller files
-  - Add links to copy to clipboard
-    after clicking name
 */
 
 function App() {
@@ -48,6 +46,19 @@ function App() {
 
   const handleThemeChange = () => {
     theme==="Start" || theme==="Dark" ? setTheme("Light") : setTheme("Dark");
+  }
+
+  const listNames = (names) => {
+    let nameList = [];
+    names.forEach((name, index) => {
+      nameList.push(
+        <p onClick={() => {navigator.clipboard.writeText(name)}}>
+          {name}
+          {index!==names.length-1?",":""}
+        </p>
+      );
+    });
+    return nameList;
   }
 
   return (
@@ -117,7 +128,7 @@ function App() {
         {/* Show name and reset button after generating name */}
         {!name ? <button onClick={handleClick}>Generate Name</button>
         : <>
-        <h3>Result: {name}</h3>
+        <h3>Result: {listNames(name)}</h3>
         <button onClick={handleClick}>Refresh</button>
         <button onClick={handleReset}>New Name</button>
         </>}            
