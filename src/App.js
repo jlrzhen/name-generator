@@ -50,6 +50,7 @@ function App() {
   }
 
   const listNames = (names) => {
+    try {
     let nameList = [];
     names.forEach((name, index) => {
       nameList.push(
@@ -67,6 +68,9 @@ function App() {
       );
     });
     return nameList;
+    } catch {
+      return "invalid theme";
+    }
   }
 
   return (
@@ -141,7 +145,11 @@ function App() {
         </> : <>
         {copied?<p className="copiedMessage">Name copied to clipboard!</p> : <></>}
         <h3 className="nameList">Result: {listNames(name)}</h3>
-        <button onClick={handleClick}>Refresh</button>
+        {typeof(name) == 'object' ?
+          <button onClick={handleClick}>Refresh</button>
+          : <></>
+        }
+        <br/>
         <button onClick={handleReset}>New Name</button>
         </>}            
       </header>
