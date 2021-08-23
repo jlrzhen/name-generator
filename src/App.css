@@ -2,6 +2,28 @@
   text-align: center;
 }
 
+.nameList {
+  max-width: 25em;
+}
+
+.nameList > p {
+  display: inline-block;
+  margin: 0;
+  padding-left: 2%;
+}
+
+.nameList > p:hover {
+  color: turquoise;
+}
+
+.nameList > p:active {
+  color: darkcyan;
+}
+
+.nameList > .first {
+  padding-left: 1%;
+}
+
 .App-headerStart { 
   min-height: 100vh;
   display: flex;

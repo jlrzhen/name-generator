@@ -14,6 +14,7 @@ function App() {
   const [input, setInput] = useState(null);
   const [randEnabled, setRandEnabled] = useState(false);
   const [theme, setTheme] = useState("Start");
+  const [copied, setCopied] = useState(false);
 
   const handleClick = () => {
     
@@ -52,7 +53,14 @@ function App() {
     let nameList = [];
     names.forEach((name, index) => {
       nameList.push(
-        <p onClick={() => {navigator.clipboard.writeText(name)}}>
+        <p onClick={() => 
+          {
+            navigator.clipboard.writeText(name);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1000);
+          }}
+          className={index===0?"first":"name"}
+        >
           {name}
           {index!==names.length-1?",":""}
         </p>
@@ -123,12 +131,15 @@ function App() {
         <div><br/>
           <label style={{fontWeight: "bold"}}>Input Keyword: </label>
           <input id="themeInput" disabled={name} onChange={event => setInput(event.target.value)} />
-        </div><br/>
+        </div>
         
         {/* Show name and reset button after generating name */}
-        {!name ? <button onClick={handleClick}>Generate Name</button>
-        : <>
-        <h3>Result: {listNames(name)}</h3>
+        {!name ? 
+        <>
+        <button onClick={handleClick}>Generate Name</button><br/>
+        </> : <>
+        {copied?<p>Name copied to clipboard!</p> : <br/>}
+        <h3 className="nameList">Result: {listNames(name)}</h3>
         <button onClick={handleClick}>Refresh</button>
         <button onClick={handleReset}>New Name</button>
         </>}            
