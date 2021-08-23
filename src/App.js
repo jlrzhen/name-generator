@@ -109,22 +109,22 @@ function App() {
         <section id="selection">
           <label style={{fontWeight: "bold"}}>Input options:</label>
           <br/>
-          <label for="rand">Random Number </label>
+          <label htmlFor="rand">Random Number </label>
           <input type="checkbox" id="rand" value="rand"
             onChange = {() => setRandEnabled(document.getElementById("rand").checked)}
           />
           <br/>
           {randEnabled ?
             <>
-              <label for="noSpaceNum">No Space Before Number </label>
+              <label htmlFor="noSpaceNum">No Space Before Number </label>
               <input type="checkbox" id="noSpaceNum" value="noSpaceNum"/>
               <br/> 
             </> : <></>
           }
-          <label for="noSpace">No Spaces Between Words </label>
+          <label htmlFor="noSpace">No Spaces Between Words </label>
           <input type="checkbox" id="noSpace" value="noSpace"/>
           <br/>
-          <label for="caps">Capitalization </label>
+          <label htmlFor="caps">Capitalization </label>
           <select id="caps">
             <option value="allCaps">Capitalize First Letters</option>
             <option value="camelCase">camelCase</option>
