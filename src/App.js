@@ -7,6 +7,7 @@ import findName from './functions/findName'
 /* TODO: 
   - Work on CSS, add animations
   - separate code into smaller files
+  - add copy to clipboard feature to readme
 */
 
 function App() {
