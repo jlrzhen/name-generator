@@ -136,9 +136,10 @@ function App() {
         {/* Show name and reset button after generating name */}
         {!name ? 
         <>
-        <button onClick={handleClick}>Generate Name</button><br/>
+        <br/>
+        <button onClick={handleClick}>Generate Name</button>
         </> : <>
-        {copied?<p>Name copied to clipboard!</p> : <br/>}
+        {copied?<p className="copiedMessage">Name copied to clipboard!</p> : <></>}
         <h3 className="nameList">Result: {listNames(name)}</h3>
         <button onClick={handleClick}>Refresh</button>
         <button onClick={handleReset}>New Name</button>
