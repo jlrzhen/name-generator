@@ -7,7 +7,6 @@ import findName from './functions/findName'
 /* TODO: 
   - Work on CSS, add animations
   - separate code into smaller files
-  - add copy to clipboard feature to readme
 */
 
 function App() {
@@ -150,7 +149,6 @@ function App() {
           <button onClick={handleClick}>Refresh</button>
           : <></>
         }
-        <br/>
         <button onClick={handleReset}>New Name</button>
         </>}            
       </header>
