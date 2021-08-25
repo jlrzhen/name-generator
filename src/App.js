@@ -106,7 +106,7 @@ function App() {
         </div>
         <br/>
         
-        <section id="selection">
+        <section className="selection">
           <label style={{fontWeight: "bold"}}>Input options:</label>
           <br/>
           <label htmlFor="rand">Random Number </label>
