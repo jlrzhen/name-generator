@@ -4,11 +4,6 @@ import logoGH from './images/GitHub-Mark-32px.png'
 import logoGHWhite from './images/GitHub-Mark-32px-White.png'
 import findName from './functions/findName'
 
-/* TODO: 
-  - Work on CSS, add animations
-  - separate code into smaller files
-*/
-
 function App() {
   const [name, setName] = useState(null);
   const [input, setInput] = useState(null);
